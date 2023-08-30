@@ -18,11 +18,62 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+h1 {
+  margin-bottom: 12px;
+}
+
+.control-panel {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.control-panel__section {
+  position: relative;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  /* border: 1px solid black; */
+}
+
+.control-panel__section h3 {
+  font-size: 0.6rem;
+  color: gray;
+  position: absolute;
+  top: -10px;
+  left: 0;
+}
+
 .card-list {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+button {
+  padding: 6px 12px;
+  background-color: white;
+  color: gray;
+  font-size: 1.1em;
+  min-width: 90px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button:active {
+  /* background-color: #1b86a0; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 4px;
 }
 
 @keyframes logo-spin {
