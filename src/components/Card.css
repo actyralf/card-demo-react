@@ -3,5 +3,16 @@
   position: relative;
   width: 200px;
   border-radius: 12px;
+  border: 2px solid white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card img {
+  transition: ease-in-out 100ms;
+  border: 1px solid transparent;
+}
+
+.card img:hover {
+  scale: 1.1;
+  border: 1px solid black;
 }
