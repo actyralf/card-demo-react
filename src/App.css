@@ -5,8 +5,12 @@
   text-align: center;
 }
 
-h1 {
-  margin-bottom: 12px;
+.current-state {
+  border: 2px solid hotpink;
+  border-radius: 8px;
+  max-width: 250px;
+  margin: 10px auto;
+  padding: 10px 15px;
 }
 
 .card-list {
@@ -25,14 +29,30 @@ h1 {
 
 .filter-box button {
   padding: 8px;
-  border: none;
+  border: 1px solid black;
   border-radius: 6px;
   font-size: 1.1em;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: ease-in-out 100ms;
+}
+
+.filter-box button:hover {
+  border-color: hotpink;
+  color: hotpink;
+  background-color: rgb(72, 0, 51);
+  cursor: pointer;
+}
+
+.filter-box button:active {
+  scale: 0.95;
 }
 
 .filter-box button.highlight {
   background-color: black;
-  color: red;
+  color: hotpink;
 }
 
 main {

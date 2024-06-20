@@ -34,7 +34,7 @@ function App() {
     <>
       <header>
         <h1>Array function magic</h1>
-        <p>{activeFilter}</p>
+        <p className="current-state">Your current state: {activeFilter}</p>
       </header>
       <main>
         <section className="filter-box">
@@ -43,14 +43,14 @@ function App() {
             onClick={() => {
               handleFilterChange("all");
             }}
-            // style={
-            //   activeFilter === "all"
-            //     ? {
-            //         color: "red",
-            //         backgroundColor: "black",
-            //       }
-            //     : undefined
-            // }
+            style={
+              activeFilter === "all"
+                ? {
+                    color: "hotpink",
+                    backgroundColor: "black",
+                  }
+                : undefined
+            }
           >
             All
           </button>
@@ -61,7 +61,7 @@ function App() {
             style={
               activeFilter === "men"
                 ? {
-                    color: "red",
+                    color: "hotpink",
                     backgroundColor: "black",
                   }
                 : undefined
@@ -76,7 +76,7 @@ function App() {
             style={
               activeFilter === "women"
                 ? {
-                    color: "red",
+                    color: "hotpink",
                     backgroundColor: "black",
                   }
                 : undefined
@@ -91,7 +91,7 @@ function App() {
             style={
               activeFilter === "by-age"
                 ? {
-                    color: "red",
+                    color: "hotpink",
                     backgroundColor: "black",
                   }
                 : undefined
@@ -106,7 +106,7 @@ function App() {
             style={
               activeFilter === "by-name"
                 ? {
-                    color: "red",
+                    color: "hotpink",
                     backgroundColor: "black",
                   }
                 : undefined
