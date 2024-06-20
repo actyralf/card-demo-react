@@ -17,12 +17,14 @@ function App() {
     setActiveSort(value);
   }
 
-  let filteredUsers = users.slice();
+  let filteredUsers;
 
   if (activeFilter === "men") {
     filteredUsers = users.filter(({ gender }) => gender === "male");
   } else if (activeFilter === "women") {
     filteredUsers = users.filter(({ gender }) => gender === "female");
+  } else {
+    filteredUsers = users.slice();
   }
 
   if (activeSort === "by-age") {
