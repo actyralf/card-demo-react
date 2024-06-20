@@ -18,15 +18,11 @@ function App() {
   } else if (activeFilter === "women") {
     filteredUsers = users.filter(({ gender }) => gender === "female");
   } else if (activeFilter === "by-age") {
-    filteredUsers = users
-      .slice()
-      .sort(({ dob: { age: ageA } }, { dob: { age: ageB } }) => ageA - ageB);
+    filteredUsers = users.slice().sort((a, b) => a.dob.age - b.dob.age);
   } else if (activeFilter === "by-name") {
     filteredUsers = users
       .slice()
-      .sort(({ name: { last: lastA } }, { name: { last: lastB } }) =>
-        lastA > lastB ? 1 : -1
-      );
+      .sort((a, b) => (a.name.last > b.name.last ? 1 : -1));
   }
 
   // Check the state: if it's "men", populate filteredUsers with male users from the users array
