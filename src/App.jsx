@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Card } from "./components/Card";
-import { users } from "./data/users";
+import { users } from "./data/users-complete";
 
 function App() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -18,11 +18,15 @@ function App() {
   } else if (activeFilter === "women") {
     filteredUsers = users.filter((user) => user.gender === "female");
   } else if (activeFilter === "by-age") {
-    filteredUsers = users.slice().sort((a, b) => a.dob.age - b.dob.age);
+    // filteredUsers = users.slice().sort((a, b) => a.dob.age - b.dob.age);
+    filteredUsers = users.toSorted((a, b) => a.dob.age - b.dob.age);
   } else if (activeFilter === "by-name") {
-    filteredUsers = users
-      .slice()
-      .sort((a, b) => (a.name.last > b.name.last ? 1 : -1));
+    // filteredUsers = users
+    //   .slice()
+    //   .sort((a, b) => (a.name.last > b.name.last ? 1 : -1));
+    filteredUsers = users.toSorted((a, b) =>
+      a.name.last > b.name.last ? 1 : -1
+    );
   }
   // Check the state: if it's "men", populate filteredUsers with male users from the users array
 
