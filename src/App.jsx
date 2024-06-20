@@ -4,32 +4,32 @@ import { Card } from "./components/Card";
 import { users } from "./data/users-complete";
 
 function App() {
+  // "all", "men", "women"
   const [activeFilter, setActiveFilter] = useState("all");
-  // "all", "men", "women", "by-age", "by-name"
+  // "by-age", "by-name"
+  const [activeSort, setActiveSort] = useState("by-age");
 
-  function handleFilterChange(filter) {
-    setActiveFilter(filter);
+  function handleFilterChange(value) {
+    setActiveFilter(value);
   }
 
-  let filteredUsers = users;
+  function handleSortChange(value) {
+    setActiveSort(value);
+  }
+
+  let filteredUsers = users.slice();
 
   if (activeFilter === "men") {
     filteredUsers = users.filter(({ gender }) => gender === "male");
   } else if (activeFilter === "women") {
     filteredUsers = users.filter(({ gender }) => gender === "female");
-  } else if (activeFilter === "by-age") {
-    // filteredUsers = users.slice().sort((a, b) => a.dob.age - b.dob.age);
-    filteredUsers = users.toSorted((a, b) => a.dob.age - b.dob.age);
-  } else if (activeFilter === "by-name") {
-    // filteredUsers = users
-    //   .slice()
-    //   .sort((a, b) => (a.name.last > b.name.last ? 1 : -1));
-    filteredUsers = users.toSorted((a, b) =>
-      a.name.last > b.name.last ? 1 : -1
-    );
   }
 
-  // Check the state: if it's "men", populate filteredUsers with male users from the users array
+  if (activeSort === "by-age") {
+    filteredUsers.sort((a, b) => a.dob.age - b.dob.age);
+  } else {
+    filteredUsers.sort((a, b) => (a.name.last > b.name.last ? 1 : -1));
+  }
 
   return (
     <>
@@ -87,10 +87,10 @@ function App() {
           </button>
           <button
             onClick={() => {
-              handleFilterChange("by-age");
+              handleSortChange("by-age");
             }}
             style={
-              activeFilter === "by-age"
+              activeSort === "by-age"
                 ? {
                     color: "hotpink",
                     backgroundColor: "black",
@@ -102,10 +102,10 @@ function App() {
           </button>
           <button
             onClick={() => {
-              handleFilterChange("by-name");
+              handleSortChange("by-name");
             }}
             style={
-              activeFilter === "by-name"
+              activeSort === "by-name"
                 ? {
                     color: "hotpink",
                     backgroundColor: "black",
